@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no" />
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="parallax.js"></script>
+<script type="text/javascript">
+$( document ).ready(function() {
+paralax($('.bg'), {
+	start: -500,
+	limit: [400,40]
+});
+
+paralax($('.bg2'), {
+	speed: 2,
+	start: -500,
+	limit: [-450,0],
+	vertical: false
+});
+
+paralax($('.bg3'), {
+	speed: 3,
+	start: -500,
+	limit: [800,0],
+	vertical: false,
+	animate: {
+		animate: true,
+		duration: 1000
+	}
+});
+
+paralax($('.bg4'), {
+	speed: 3,
+	start: -500,
+	limit: [400,40],
+	vertical: true,
+	animate: {
+		animate: true,
+		duration: 1000
+	}
+});
+
+if (isMobile() === true) {
+	$('.is_mobile .inner').html('<span class="true">TRUE</span><div><p>' + navigator.userAgent + '</p></div>');
+} else {
+	$('.is_mobile .inner').html('<span class="false">FALSE</span><div><p>' + navigator.userAgent + '</p></div>');
+}
+
+});
+</script>
+<style>
+body {width: 1000px; margin: auto; font-family: Arial; font-size: 12px; padding: 0 40px;}
+.bs {border: 1px solid gray; padding: 20px; margin: 10px 0;}
+.spacer {
+background: #EEE; width: 940px; height: 400px; padding: 30px;
+}
+
+h1 {
+	font-size: 90px;
+	margin: 20px 0;
+}
+
+.spacer p {
+	font-size: 14px;
+	line-height: 18px;
+	color: #CCC;
+}           
+
+.spacer h2,
+.spacer h3 {
+	color: #CCC;
+}
+
+#status {
+	padding: 20px;
+	background: #EEE;
+	position: fixed;
+	left: 50px;
+	top: 50px;
+}
+
+.is_mobile { border: 1px solid #CCC; padding: 20px; margin: 20px 0; }
+.is_mobile h2 { margin: 0 0 15px; }
+.true, .false { font-size: 18px; font-weight: bold; }
+.true { color: green; }
+.false { color: red; }
+</style>
+</head>
+<body>
+<h1>Parallax</h1>
+<div id="status"></div>
+<div class="is_mobile"><h2>Is portable device:</h2><div class="inner"></div></div>
+<div class="spacer">
+<p>
+Sit amet, consectetur adipiscing elit.
+Vivamus condimentum risus et tortor vehicula, vitae dictum ipsum consequat.
+Aliquam sagittis ipsum a felis pharetra, vel vestibulum sapien viverra.
+Integer et leo vel lorem auctor tristique. Nulla facilisi.
+In sed tincidunt enim. Nulla nec enim at eros pretium commodo id sed nulla.
+Quisque cursus, neque non molestie hendrerit, dui velit condimentum nisi, malesuada hendrerit tellus nunc sed quam.
+Morbi tempus iaculis quam, in consectetur erat lobortis eu. Nunc et malesuada nulla. Nunc tincidunt tellus blandit ante accumsan pulvinar.
+Maecenas nisl nibh, ultricies sit amet convallis sed, elementum sit amet risus. Ut feugiat ullamcorper mattis.
+</p>
+<h2>Lorem ipsum dolor</h2>
+<p>
+Nulla vel justo nulla. Fusce porttitor cursus lectus id vehicula.
+In quis auctor lorem. Aenean pulvinar elit at placerat ultricies.
+Mauris ac porta urna, at iaculis eros. Donec orci ante, aliquam vitae ante bibendum,
+semper ultrices ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+Nullam ut tempus lectus.
+</p>
+<h3>Pellentesque condimentum</h3>
+<p>
+Malesuada sodales sapien. Nunc et libero convallis, semper turpis nec, venenatis tellus.
+Fusce id mi felis. Curabitur molestie elementum hendrerit. Dui ut mollis cursus.
+</p>
+<p>
+Vestibulum sit amet odio ante. Fusce sed dui porta, feugiat ligula sed, suscipit nibh.
+Maecenas adipiscing quam adipiscing varius pellentesque. Duis nec leo vitae felis ultricies cursus.
+Phasellus vulputate augue lorem, vitae porttitor diam cursus ut. Aliquam eros odio, ultrices
+egestas mi vel, malesuada tincidunt risus. Integer id elementum massa.
+</p>
+<p>
+Mauris congue rutrum accumsan. Sed ut est risus.
+Aliquam bibendum est vel nisl venenatis vestibulum. Cras in est vestibulum, venenatis lacus et
+</p>
+</div>
+<div class="bs bg-status">
+<h2>Vertical paralax [bg]</h2>
+<pre>
+paralax($('.bg'), {
+	start: -500,
+	limit: [400,40]
+});
+</pre>
+</div>
+<div style="background: url(image-bottom.jpg) no-repeat; background-position: 0 0; width: 1000px; height: 500px; overflow: hidden;">
+	<div class="bg" style="background: url(image-top.png) no-repeat; background-position: 0 400px; width: 1000px; height: 600px;"></div>
+</div>
+<div class="bs bg2-status">
+<h2>Horizontal paralax [bg2]</h2>
+<pre>
+paralax($('.bg2'), {
+	speed: 2,
+	start: -500,
+	limit: [-450,0],
+	vertical: false
+});
+</pre>
+</div>
+<div style="background: url(image-bottom.jpg) no-repeat; background-position: 0 0; width: 1000px; height: 500px; overflow: hidden;">
+	<div class="bg2" style="background: url(image-top.png) no-repeat; background-position: -450px 20px; width: 1000px; height: 600px;"></div>
+</div>
+<div class="bs bg3-status">
+<h2>Horizontal paralax [bg3]</h2>
+<pre>
+paralax($('.bg3'), {
+	speed: 3,
+	start: -500,
+	limit: [800,0],
+	vertical: false,
+	animate: {
+		animate: true,
+		duration: 1000
+	}
+});
+</pre>
+</div>
+<div style="background: url(image-bottom.jpg) no-repeat; background-position: 0 0; width: 1000px; height: 500px; overflow: hidden;">
+	<div class="bg3" style="background: url(image-top.png) no-repeat; background-position: 800px 30px; width: 1000px; height: 600px;"></div>
+</div>
+<div class="bs bg3-status">
+<h2>Vertical paralax [bg4]</h2>
+<pre>
+paralax($('.bg4'), {
+	speed: 3,
+	start: -500,
+	limit: [400,40],
+	vertical: true,
+	animate: {
+		animate: true,
+		duration: 1000
+	}
+});
+</pre>
+</div>
+<div style="background: url(image-bottom.jpg) no-repeat; background-position: 0 0; width: 1000px; height: 500px; overflow: hidden;">
+	<div class="bg4" style="background: url(image-top.png) no-repeat; background-position: 0 400px; width: 1000px; height: 600px;"></div>
+</div>
+<div class="spacer">
+<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Vivamus condimentum risus et tortor vehicula, vitae dictum ipsum consequat.
+Aliquam sagittis ipsum a felis pharetra, vel vestibulum sapien viverra.
+Integer et leo vel lorem auctor tristique. Nulla facilisi.
+In sed tincidunt enim. Nulla nec enim at eros pretium commodo id sed nulla.
+Quisque cursus, neque non molestie hendrerit, dui velit condimentum nisi, malesuada hendrerit tellus nunc sed quam.
+Morbi tempus iaculis quam, in consectetur erat lobortis eu. Nunc et malesuada nulla. Nunc tincidunt tellus blandit ante accumsan pulvinar.
+Maecenas nisl nibh, ultricies sit amet convallis sed, elementum sit amet risus. Ut feugiat ullamcorper mattis.
+</p>
+
+<p>
+Nulla vel justo nulla. Fusce porttitor cursus lectus id vehicula.
+In quis auctor lorem. Aenean pulvinar elit at placerat ultricies.
+Mauris ac porta urna, at iaculis eros. Donec orci ante, aliquam vitae ante bibendum,
+semper ultrices ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+Nullam ut tempus lectus, malesuada sodales sapien. Nunc et libero convallis, semper turpis nec, venenatis tellus.
+Fusce id mi felis. Curabitur molestie elementum hendrerit. Pellentesque condimentum dui ut mollis cursus.
+</p>
+<p>
+Vestibulum sit amet odio ante. Fusce sed dui porta, feugiat ligula sed, suscipit nibh.
+Maecenas adipiscing quam adipiscing varius pellentesque. Duis nec leo vitae felis ultricies cursus.
+Phasellus vulputate augue lorem, vitae porttitor diam cursus ut. Aliquam eros odio, ultrices
+egestas mi vel, malesuada tincidunt risus. Integer id elementum massa.
+</p>
+<p>
+Vivamus lobortis ante quis risus sollicitudin, nec aliquam ipsum venenatis.
+Proin ornare posuere orci, ut adipiscing sapien vehicula sed. Quisque ac sodales ligula.
+Fusce elementum, mi non dictum laoreet, nibh orci laoreet odio, id auctor odio purus vitae magna.
+Ut vitae neque id lacus ullamcorper luctus. Cras auctor dolor id mollis bibendum. Praesent vehicula
+iaculis velit, ac adipiscing ante suscipit sit amet. Mauris congue rutrum accumsan. Sed ut est risus.
+Aliquam bibendum est vel nisl venenatis vestibulum. Cras in est vestibulum, venenatis lacus et,
+imperdiet sem. Maecenas sed aliquet metus. Cras quis fermentum dolor.
+</p>
+</div>
+</body>
+</html>
